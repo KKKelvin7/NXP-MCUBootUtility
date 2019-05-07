@@ -41,8 +41,9 @@ kMainLanguageContentDict = {
         'mItem_imageReadbackManual':          ['Manual',                                u"手动"],
         'menu_window':                        ['Window',                                u"界面"],
         'menu_help':                          ['Help',                                  u"帮助"],
-        'mItem_homePage':                     ['Home Page',                             u"软件主页"],
+        'mItem_homePage':                     ['Home Page',                             u"项目主页"],
         'mItem_aboutAuthor':                  ['About Author',                          u"关于作者"],
+        'mItem_contributors':                 ['Contributors',                          u"贡献者名单"],
         'mItem_specialThanks':                ['Special Thanks',                        u"特别感谢"],
         'mItem_revisionHistory':              ['Revision History',                      u"版本历史"],
 
@@ -222,7 +223,7 @@ kSubLanguageContentDict = {
         'button_usdhcsd_cancel':              ['Cancel',                                u"取消"],
 
         #usdhcmmc
-        'usdhcmmc_title':                     ['uSDHC MMC Device Configuration',        u"配置uSDHC接口MMC卡启动设备"],
+        'usdhcmmc_title':                     ['uSDHC (e)MMC Device Configuration',     u"配置uSDHC接口MMC卡启动设备"],
         'panel_mmcOpt0':                      ['MMC Option0',                           u"MMC卡选项0"],
         'sText_partitionAccess':              ['Partition Access:',                     u"分割访问权限："],
         'sText_enableBootConfig':             ['Enable Boot Config:',                   u"使能启动配置："],
@@ -392,12 +393,14 @@ kRevision_1_3_0_zh = u"【v1.3.0】 \n" + \
                      u"     4. /apps目录下RT1050 EVKB板子的一些LED demo是无效的 \n\n"
 kRevision_1_4_0_en =  "【v1.4.0】 \n" + \
                       "  Feature: \n" + \
+                      "     1. Support for loading bootable image into uSDHC SD/eMMC boot device  \n" + \
                       "  Improvement: \n" + \
                       "     1. Set default FlexSPI NOR device to align with  NXP EVK boards \n" + \
                       "  Bug: \n" + \
                       "     1. \n\n"
 kRevision_1_4_0_zh = u"【v1.4.0】 \n" + \
                      u"  特性: \n" + \
+                     u"     1. 支持下载Bootable image进主动启动设备 - uSDHC接口SD/eMMC卡 \n" + \
                      u"  改进: \n" + \
                      u"     1. 默认FlexSPI NOR device应与恩智浦官方EVK板卡相匹配 \n" + \
                      u"  缺陷: \n" + \
@@ -411,6 +414,8 @@ kMsgLanguageContentDict = {
         'aboutAuthor_email1':                 ['Email:     jie.heng@nxp.com \n',        u"邮箱：jie.heng@nxp.com \n"],
         'aboutAuthor_email2':                 ['Email:     hengjie1989@foxmail.com \n', u"邮箱：hengjie1989@foxmail.com \n"],
         'aboutAuthor_blog':                   [u"Blog:      痞子衡嵌入式 https://www.cnblogs.com/henjay724/ \n",                   u"博客：痞子衡嵌入式 https://www.cnblogs.com/henjay724/ \n"],
+        'contributors_title':                 ['Contributors',                          u"贡献者名单"],
+        'contributors_info':                  [u"李嘉奕Joyeee、祁凯Kelvin \n",          u"李嘉奕Joyeee、祁凯Kelvin \n"],
         'specialThanks_title':                ['Special Thanks',                        u"特别感谢"],
         'specialThanks_info':                 [u"Special thanks to 周小朋Clare、杨帆、刘华东Howard、沈浩杰Jayson \n",              u"特别感谢我亲爱的同事们：周小朋Clare、杨帆、刘华东Howard、沈浩杰Jayson \n"],
         'revisionHistory_title':              ['Revision History',                      u"版本历史"],

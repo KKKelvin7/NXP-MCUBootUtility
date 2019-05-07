@@ -77,6 +77,7 @@ class secBootUi(secBootWin.secBootWin):
         self.mcuDevice = None
         self.bootDevice = None
         self.isNandDevice = False
+        self.isSdmmcCard = False
         self.sbEnableBootDeviceMagic = None
         self.sbAccessBootDeviceMagic = None
         self._initTargetSetupValue()
@@ -214,30 +215,40 @@ class secBootUi(secBootWin.secBootWin):
         self.createMcuTarget()
         if self.bootDevice == uidef.kBootDevice_FlexspiNor:
             self.isNandDevice = False
+            self.isSdmmcCard = False
             self.sbEnableBootDeviceMagic = 'flexspinor'
             self.sbAccessBootDeviceMagic = ''
             self._setFlexspiNorDeviceForEvkBoard()
         elif self.bootDevice == uidef.kBootDevice_SemcNor:
             self.isNandDevice = False
+            self.isSdmmcCard = False
             self.sbEnableBootDeviceMagic = 'semcnor'
             self.sbAccessBootDeviceMagic = ''
         elif self.bootDevice == uidef.kBootDevice_LpspiNor:
             self.isNandDevice = False
+            self.isSdmmcCard = False
             self.sbEnableBootDeviceMagic = 'spieeprom'
             self.sbAccessBootDeviceMagic = 'spieeprom'
         elif self.bootDevice == uidef.kBootDevice_FlexspiNand:
             self.isNandDevice = True
+            self.isSdmmcCard = False
             self.sbEnableBootDeviceMagic = 'flexspinand'
             self.sbAccessBootDeviceMagic = 'flexspinand'
         elif self.bootDevice == uidef.kBootDevice_SemcNand:
             self.isNandDevice = True
+            self.isSdmmcCard = False
             self.sbEnableBootDeviceMagic = 'semcnand'
             self.sbAccessBootDeviceMagic = 'semcnand'
-        elif self.bootDevice == uidef.kBootDevice_UsdhcSd or \
-             self.bootDevice == uidef.kBootDevice_UsdhcMmc:
+        elif self.bootDevice == uidef.kBootDevice_UsdhcSd:
             self.isNandDevice = True
+            self.isSdmmcCard = True
             self.sbEnableBootDeviceMagic = 'sdcard'
             self.sbAccessBootDeviceMagic = 'sdcard'
+        elif self.bootDevice == uidef.kBootDevice_UsdhcMmc:
+            self.isNandDevice = True
+            self.isSdmmcCard = True
+            self.sbEnableBootDeviceMagic = 'mmccard'
+            self.sbAccessBootDeviceMagic = 'mmccard'
         else:
             pass
 
@@ -605,7 +616,10 @@ class secBootUi(secBootWin.secBootWin):
         memType = ''
         hasDcd = ''
         if self.isNandDevice:
-            memType = 'nand_'
+            if self.isSdmmcCard:
+                memType = 'sdmmc_'
+            else:
+                memType = 'nand_'
         else:
             memType = 'nor_'
         dcdCtrlDict, dcdSettingsDict = uivar.getBootDeviceConfiguration(uidef.kBootDevice_Dcd)
@@ -1377,6 +1391,7 @@ class secBootUi(secBootWin.secBootWin):
         self.m_menubar.SetMenuLabel(uilang.kMenuPosition_Help, uilang.kMainLanguageContentDict['menu_help'][langIndex])
         self.m_menuItem_homePage.SetItemLabel(uilang.kMainLanguageContentDict['mItem_homePage'][langIndex])
         self.m_menuItem_aboutAuthor.SetItemLabel(uilang.kMainLanguageContentDict['mItem_aboutAuthor'][langIndex])
+        self.m_menuItem_contributors.SetItemLabel(uilang.kMainLanguageContentDict['mItem_contributors'][langIndex])
         self.m_menuItem_specialThanks.SetItemLabel(uilang.kMainLanguageContentDict['mItem_specialThanks'][langIndex])
         self.m_menuItem_revisionHistory.SetItemLabel(uilang.kMainLanguageContentDict['mItem_revisionHistory'][langIndex])
 
